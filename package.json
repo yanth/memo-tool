@@ -1,0 +1,18 @@
+{
+  "name": "memo-tool",
+  "main": "./lib/memo-tool",
+  "version": "0.1.0",
+  "description": "memo-tool",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "memo-tool:today"
+  },
+  "repository": "https://github.com/yanth/memo-tool",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
