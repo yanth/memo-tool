@@ -15,9 +15,10 @@ module.exports = MemoTool =
   openToday: ->
     console.log 'file open'
 
-    dirPath = "C:\\Users\\yanth\\Dropbox\\text\\memo\\"
+    path = require 'path'
+    dirPath = atom.config.get("memo-tool.path")
     filename = @createFilename()
-    filePath = dirPath + filename
+    filePath = path.join dirPath, filename
 
     fs = require 'fs'
     fs.access filePath,
