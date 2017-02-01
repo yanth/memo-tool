@@ -45,7 +45,7 @@ module.exports = MemoTool =
     console.log "== createFilename"
     date = new Date()
     filename = date.getFullYear() +
-               ("0" + date.getMonth()+1).slice(-2) +
+               ("0" + (date.getMonth()+1)).slice(-2) +
                ("0" + date.getDate()).slice(-2) +
                ".md"
     console.log filename
