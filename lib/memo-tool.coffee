@@ -20,6 +20,27 @@ module.exports = MemoTool =
     filename = @createFilename()
     filePath = path.join dirPath, filename
 
+    atom.project.addPath(dirPath) if not atom.project.contains(dirPath)
+    @createNewFile(filePath)
+    atom.open({
+            pathsToOpen: filePath
+            newWindow: false
+            devmode: false
+            safeMode: false
+    })
+    console.log "== open file: " + filePath
+
+  createFilename: ->
+    console.log "== createFilename"
+    date = new Date()
+    filename = date.getFullYear() +
+               ("0" + (date.getMonth()+1)).slice(-2) +
+               ("0" + date.getDate()).slice(-2) +
+               ".md"
+    console.log filename
+    filename
+
+  createNewFile: (filepath) ->
     fs = require 'fs'
     fs.access filePath,
       (err) ->
@@ -32,21 +53,3 @@ module.exports = MemoTool =
           (err, fd) ->
             if err
               throw err
-
-    console.log "== open file: " + filePath
-    atom.open({
-            pathsToOpen: filePath
-            newWindow: false
-            devmode: false
-            safeMode: false
-    })
-
-  createFilename: ->
-    console.log "== createFilename"
-    date = new Date()
-    filename = date.getFullYear() +
-               ("0" + (date.getMonth()+1)).slice(-2) +
-               ("0" + date.getDate()).slice(-2) +
-               ".md"
-    console.log filename
-    filename
