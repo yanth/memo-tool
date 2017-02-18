@@ -40,7 +40,7 @@ module.exports = MemoTool =
     console.log filename
     filename
 
-  createNewFile: (filepath) ->
+  createNewFile: (filePath) ->
     fs = require 'fs'
     fs.access filePath,
       (err) ->
